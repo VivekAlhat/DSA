@@ -84,7 +84,7 @@ int main(){
 	g.addEdge(1,2);
 	g.addEdge(2,4);
 	//g.printList();
-	g.dfs(0, visited);
-	//g.dfsIterative(0, visited);
+	//g.dfs(0, visited);
+	g.dfsIterative(0, visited);
 	return 0;
 }
