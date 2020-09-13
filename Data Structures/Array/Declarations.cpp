@@ -16,5 +16,12 @@ int main()
     cout << C[4] << endl;     // Garbage value because we haven't initialized that index
     cout << *(D + 3) << endl; // Printing array using pointers
     cout << 1 [E] << endl;    // Array subscripts
+
+    // Printing address of array
+    for (int i = 0; i < 5; ++i)
+    {
+        cout << &(B[i]) << " ";
+    }
+    cout << endl;
     return 0;
 }
