@@ -1,6 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int *resize(int *arr, int size)
+{
+    int *n;
+    n = new int[10];
+    for (int i = 0; i < size; ++i)
+    {
+        n[i] = arr[i];
+    }
+    delete[] arr; //delete existing array to avoid memory leaks
+    arr = n;      //point to newly created array
+    n = nullptr;  //point to null because we only want one pointer on array
+    return arr;
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -17,7 +31,8 @@ int main()
         cin >> arr[i];
     }
 
-    for (int i = 0; i < 5; ++i)
+    arr = resize(arr, 5);
+    for (int i = 0; i < 10; ++i)
     {
         cout << arr[i] << " ";
     }
