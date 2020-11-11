@@ -1,6 +1,23 @@
 #include <iostream>
 using namespace std;
 
+void insert(int arr[], int pos, int elem, int length)
+{
+    if (pos < 0 || pos > length)
+    {
+        cout << "Data cannot be inserted here." << endl;
+    }
+    else
+    {
+        int i;
+        for (i = length; i > pos; i--)
+        {
+            arr[i] = arr[i - 1];
+        }
+        arr[i] = elem;
+    }
+}
+
 int search(int arr[], int size, int elem)
 {
     for (int i = 0; i < size; ++i)
@@ -35,11 +52,12 @@ void display(int arr[], int size)
 
 int main()
 {
-    int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int arr[10] = {1, 2, 3, 4, 5, 6};
+    int length = 6;
     int size = 10, el, pos;
     cout << "Initial array is: " << endl;
     display(arr, size);
-    cout << "Total elements: " << size << endl;
+    cout << "Size: " << size << endl;
     // Linear search
     cout << "Enter search term: " << endl;
     cin >> el;
@@ -59,21 +77,11 @@ int main()
     cout << "After updation array is: " << endl;
     display(arr, size);
 
-    // Delete element
-    cout << "Enter delete term: " << endl;
-    cin >> el;
-    int found = search(arr, size, el);
-    // cout << found << endl;
-    if (found != -1)
-    {
-        for (int i = found; i < size; i++)
-        {
-            arr[i] = arr[i + 1];
-        }
-        size--;
-    }
-    cout << "After deletion array is: " << endl;
+    // Insert at a particular index
+    cout << "Enter position and value: " << endl;
+    cin >> pos >> el;
+    insert(arr, pos, el, length);
+    cout << "After insertion array is: " << endl;
     display(arr, size);
-    cout << "Total elements: " << size << endl;
     return 0;
 }
