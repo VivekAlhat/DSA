@@ -3,8 +3,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void reverseString(string, int, int);
-
 int main()
 {
     ios_base::sync_with_stdio(false);
